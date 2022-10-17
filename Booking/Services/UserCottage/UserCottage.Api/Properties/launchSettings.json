@@ -1,0 +1,12 @@
+﻿{
+  "profiles": {
+    "UserCottage.Api": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://localhost:5009;https://localhost:8081",
+      "dotnetRunMessages": true
+    }
+  }
+}
