@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Booking.Services.UserCottage.Domain</RootNamespace>
+    <AssemblyName>Booking.Services.UserCottage.Domain</AssemblyName>
+    <WarningsAsErrors>CS8600;CS8602;CS8603;CS8613;CS8601;CS8625;CS8604;CS8618</WarningsAsErrors>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\_Common\_Common.Domain\_Common.Domain.csproj" />
+  </ItemGroup>
+
+
+</Project>
