@@ -19,7 +19,7 @@ public static class ServiceCollectionExtensions
 {
     public static void AddExceptionHandling(
         this IServiceCollection services,
-        Action<ProblemDetailsOptions>? configure = null)
+        Action<Hellang.Middleware.ProblemDetails.ProblemDetailsOptions>? configure = null)
     {
         services.AddProblemDetails(options =>
         {

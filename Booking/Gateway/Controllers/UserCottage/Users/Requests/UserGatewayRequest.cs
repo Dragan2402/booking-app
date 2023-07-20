@@ -15,7 +15,7 @@ public class UserGatewayRequest
     public string LastName { get; set; } = string.Empty;
 
     [Required(AllowEmptyStrings = false, ErrorMessage = "{0} is required")]
-    public EUserType UserType { get; set; }
+    public string Role { get; set; } = string.Empty;
 
     [Required(AllowEmptyStrings = false, ErrorMessage = "{0} is required")]
     public AddressGatewayRequest Address { get; set; } = default!;

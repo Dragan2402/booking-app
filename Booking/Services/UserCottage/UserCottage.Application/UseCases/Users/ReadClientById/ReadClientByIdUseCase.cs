@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Booking.Services.Common.Data;
 using Booking.Services.Common.Exception;
 using Booking.Services.UserCottage.Application.Repositories;
 using Booking.Services.UserCottage.Application.UseCases.Users.Common.Results;
@@ -25,7 +26,7 @@ public class ReadClientByIdUseCase
 
         var user = maybeClient.Item;
 
-        if (user.UserType == Domain.Models.Enum.EUserType.Owner)
+        if (user.Role.Name != GeneralRoles.ClientRole)
             throw new BusinessLogicException($"User is not client,");
 
         return _mapper.Map<UserResult>(user);

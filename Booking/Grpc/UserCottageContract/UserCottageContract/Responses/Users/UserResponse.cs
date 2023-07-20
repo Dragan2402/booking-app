@@ -19,7 +19,7 @@ public class UserResponse
     public Guid IdentityId { get; set; }
 
     [ProtoMember(5)]
-    public EUserType UserType { get; set; }
+    public string Role { get; set; } = string.Empty;
 
     [ProtoMember(6)]
     public string CreatedAt { get; set; } = string.Empty;

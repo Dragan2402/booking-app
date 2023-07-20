@@ -10,7 +10,7 @@ public static class AuthorizationExtensions
         if (originHeaders.Count != 1 || String.IsNullOrEmpty(originHeaders.Single()))
             throw new Exception("Origin header is malformed or missing");
         else
-            return originHeaders.Single();
+            return originHeaders.Single()!;
     }
 
     public static string ExtractToken(this HttpRequest request)
@@ -18,10 +18,10 @@ public static class AuthorizationExtensions
         var authorizationHeaders = request.Headers.Authorization;
         if (authorizationHeaders.Count != 1
             || String.IsNullOrEmpty(authorizationHeaders.Single())
-            || !authorizationHeaders.Single().StartsWith("Bearer "))
+            || !authorizationHeaders.Single()!.StartsWith("Bearer "))
             throw new Exception("Authorization header is malformed or missing");
         else
-            return authorizationHeaders.Single()[7..];
+            return authorizationHeaders.Single()![7..];
     }
 
     public static ITokenValidationService EnsureNotNull(this ITokenValidationService? service)

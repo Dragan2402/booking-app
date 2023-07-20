@@ -16,7 +16,7 @@ public class CreateUserRequest
     public Guid IdentityId { get; set; }
 
     [ProtoMember(4)]
-    public EUserType UserType { get; set; }
+    public string Role { get; set; } = string.Empty;
 
     [ProtoMember(5)]
     public AddressRequest Address = default!;

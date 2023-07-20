@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <RootNamespace>Booking.Services.UserCottage.Domain</RootNamespace>
@@ -12,6 +12,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\_Common\_Common.Domain\_Common.Domain.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="Models\Enum\" />
   </ItemGroup>
 
 

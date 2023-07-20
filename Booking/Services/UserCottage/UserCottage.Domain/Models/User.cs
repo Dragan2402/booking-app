@@ -1,6 +1,5 @@
 ﻿using Booking.Services.Common.Domain;
 using Booking.Services.UserCottage.Domain.Models;
-using Booking.Services.UserCottage.Domain.Models.Enum;
 
 namespace Booking.Services.UserCottage.Domain;
 
@@ -11,14 +10,15 @@ public class User : Entity, IAuditable, ISoftDeletable
         string firstName,
         string lastName,
         Guid identityId,
-        EUserType eUserType
+        Guid roleId
         ) : base(id)
     {
         this.FirstName = firstName;
         this.LastName = lastName;
         this.Address = default!;
         this.IdentityId = identityId;
-        this.UserType = eUserType;
+        this.RoleId = roleId;
+        this.Role = default!;
         this.Cottages = new List<Cottage>();
     }
     public User()
@@ -26,6 +26,7 @@ public class User : Entity, IAuditable, ISoftDeletable
         this.FirstName = string.Empty;
         this.LastName = string.Empty;
         this.Address = default!;
+        this.Role = default!;
         this.Cottages = new List<Cottage>();
     }
 
@@ -35,6 +36,7 @@ public class User : Entity, IAuditable, ISoftDeletable
         this.FirstName = string.Empty;
         this.LastName = string.Empty;
         this.Address = default!;
+        this.Role = default!;
         this.Cottages = new List<Cottage>();
     }
 
@@ -44,7 +46,8 @@ public class User : Entity, IAuditable, ISoftDeletable
     public Guid AddressId { get; set; }
     public Address Address { get; set; }
     public List<Cottage> Cottages { get; set; }
-    public EUserType UserType { get; set; }
+    public Role Role { get; set; }
+    public Guid RoleId { get; set; }
     public DateTimeOffset CreatedAt { get; set; }
     public DateTimeOffset UpdatedAt { get; set; }
     public DateTimeOffset? DeletedAt { get; set; }

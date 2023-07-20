@@ -1,6 +1,5 @@
 ﻿using Booking.Services.Common.Infrastructure;
 using Booking.Services.UserCottage.Domain;
-using Booking.Services.UserCottage.Domain.Models.Enum;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -18,11 +17,13 @@ public class UserConfiguration : AEntityTypeConfiguration<User>
 
         builder.Property(u => u.LastName).HasColumnType("varchar(255)").IsRequired();
 
-        builder.Property(u => u.UserType).HasColumnType("integer").IsRequired();
+        builder.Property(u => u.RoleId).IsRequired();
 
         builder.Property(u => u.IdentityId).IsRequired();
 
         builder.HasOne(u => u.Address).WithOne(a => a.User).HasForeignKey<User>(u => u.AddressId);
+
+        builder.HasOne(u => u.Role).WithMany(r => r.Users).HasForeignKey(u => u.RoleId).OnDelete(DeleteBehavior.NoAction);
 
         builder.HasData(CreateSeed());
 
@@ -40,7 +41,7 @@ public class UserConfiguration : AEntityTypeConfiguration<User>
                 UpdatedAt = DateTime.Now,
                 FirstName = "Jovan",
                 LastName = "Jovic",
-                UserType = EUserType.Client
+                RoleId = new Guid("b18e34d1-690c-4e41-83a7-43b68df56912"),
             },
             new User(new Guid("59249fab-eec0-435c-9df9-5aba2c082f39"))
             {
@@ -50,7 +51,7 @@ public class UserConfiguration : AEntityTypeConfiguration<User>
                 UpdatedAt = DateTime.Now,
                 FirstName = "Pero",
                 LastName = "Peric",
-                UserType = EUserType.Client,
+                RoleId = new Guid("b18e34d1-690c-4e41-83a7-43b68df56912"),
             },
             new User(new Guid("fdb5d61d-f6b9-4b0f-8869-4a9bebeb128a"))
             {
@@ -60,7 +61,7 @@ public class UserConfiguration : AEntityTypeConfiguration<User>
                 UpdatedAt = DateTime.Now,
                 FirstName = "Gazda",
                 LastName = "Gazdic",
-                UserType = EUserType.Owner
+                RoleId = new Guid("936176c2-95bb-4a2c-a2b9-fa657a02973f"),
             },
             new User(new Guid("a1829896-9b2a-4e4f-b732-0b2414547802"))
             {
@@ -70,7 +71,7 @@ public class UserConfiguration : AEntityTypeConfiguration<User>
                 UpdatedAt = DateTime.Now,
                 FirstName = "Andrej",
                 LastName = "Culjak",
-                UserType = EUserType.Owner
+                RoleId = new Guid("936176c2-95bb-4a2c-a2b9-fa657a02973f"),
             }
         };
 

@@ -25,19 +25,19 @@ public class UserRepository : ARepository<User>, IUserRepository
 
     public async Task<List<User>> GetAllAsync()
     {
-        return await Context.Users.Include(c => c.Address).ToListAsync();
+        return await Context.Users.Include(c => c.Address).ThenInclude(a => a.City).ThenInclude(c => c.Country).Include(u => u.Role).ToListAsync();
     }
 
     public async Task<Maybe<User>> GetById(Guid id)
     {
-        var query = Context.Users.Include(u => u.Address);
+        var query = Context.Users.Include(u => u.Address).ThenInclude(a => a.City).ThenInclude(c => c.Country).Include(u => u.Role);
         var possibleUser = await query.SingleOrDefaultAsync(u => u.Id == id);
         return new Maybe<User>(possibleUser);
     }
 
     public async Task<Maybe<User>> ReadClientById(Guid id)
     {
-        var possibleClient = await Context.Users.AsNoTracking().SingleOrDefaultAsync(u => u.Id == id);
+        var possibleClient = await Context.Users.Include(u => u.Role).AsNoTracking().SingleOrDefaultAsync(u => u.Id == id);
         return new Maybe<User>(possibleClient);
     }
 }

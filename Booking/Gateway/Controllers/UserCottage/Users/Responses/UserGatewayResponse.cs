@@ -9,7 +9,7 @@ public class UserGatewayResponse
     public string FirstName { get; set; } = string.Empty;
     public string LastName { get; set; } = string.Empty;
     public Guid IdentityId { get; set; }
-    public EUserType UserType { get; set; }
+    public string Role { get; set; } = string.Empty;
     public DateTimeOffset CreatedAt { get; set; }
     public DateTimeOffset UpdatedAt { get; set; }
     public AddressResponse Address { get; set; } = default!;
