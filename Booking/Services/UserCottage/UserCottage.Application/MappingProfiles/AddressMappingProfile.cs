@@ -9,7 +9,10 @@ public class AddressMappingProfile : Profile
 {
     public AddressMappingProfile()
     {
-        CreateMap<Address, AddressResult>();
-        CreateMap<AddressContract, Address>();
+        CreateMap<Address, AddressResult>()
+            .ForMember(dest => dest.City, source => source.MapFrom(source => source.City.Name))
+            .ForMember(dest => dest.Country, source => source.MapFrom(source => source.City.Country.Name));
+        CreateMap<AddressContract, Address>()
+            .ForMember(dest => dest.City, source => source.MapFrom(source => new City(source.City)));
     }
 }

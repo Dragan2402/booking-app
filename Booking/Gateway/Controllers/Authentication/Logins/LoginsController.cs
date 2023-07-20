@@ -38,7 +38,7 @@ public class LoginsController : Controller
     [HttpPost]
     [BearerAuthorization]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
-    public async Task<IActionResult> Logout()
+    public IActionResult Logout()
     {
         return NoContent();
     }

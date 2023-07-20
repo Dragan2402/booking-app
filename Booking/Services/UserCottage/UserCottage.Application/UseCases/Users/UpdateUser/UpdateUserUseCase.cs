@@ -47,9 +47,8 @@ public class UpdateUserUseCase
     private void UpdateAddress(User userToUpdate, AddressContract address)
     {
         userToUpdate.Address.Street = address.Street == string.Empty ? userToUpdate.Address.Street : address.Street;
-        userToUpdate.Address.State = address.State == string.Empty ? userToUpdate.Address.State : address.State;
-        userToUpdate.Address.City = address.City == string.Empty ? userToUpdate.Address.City : address.City;
+        userToUpdate.Address.City.Name = address.City == string.Empty ? userToUpdate.Address.City.Name : address.City;
         userToUpdate.Address.PostalCode = address.PostalCode == string.Empty ? userToUpdate.Address.PostalCode : address.PostalCode;
-        userToUpdate.Address.Country = address.Country == string.Empty ? userToUpdate.Address.Country : address.Country;
+        userToUpdate.Address.City.Country.Name = address.Country == string.Empty ? userToUpdate.Address.City.Country.Name : address.Country;
     }
 }

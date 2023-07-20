@@ -57,9 +57,16 @@ public class UpdateCottageUseCase
     private void UpdateAddress(Cottage cottageToUpdate, Cottage newCottage)
     {
         cottageToUpdate.Address.Street = newCottage.Address.Street == string.Empty ? cottageToUpdate.Address.Street : newCottage.Address.Street;
-        cottageToUpdate.Address.State = newCottage.Address.State == string.Empty ? cottageToUpdate.Address.State : newCottage.Address.State;
-        cottageToUpdate.Address.City = newCottage.Address.City == string.Empty ? cottageToUpdate.Address.City : newCottage.Address.City;
         cottageToUpdate.Address.PostalCode = newCottage.Address.PostalCode == string.Empty ? cottageToUpdate.Address.PostalCode : newCottage.Address.PostalCode;
-        cottageToUpdate.Address.Country = newCottage.Address.Country == string.Empty ? cottageToUpdate.Address.Country : newCottage.Address.Country;
+        
+        if (cottageToUpdate.Address.City.Name != newCottage.Address.City.Name && newCottage.Address.City.Name != string.Empty)
+        {
+            UpdateCity(cottageToUpdate, newCottage);
+        }
+    }
+
+    private void UpdateCity(Cottage cottageToUpdate, Cottage newCottage)
+    {
+        cottageToUpdate.Address.City.Name = newCottage.Address.City.Name;
     }
 }

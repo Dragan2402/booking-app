@@ -17,9 +17,6 @@ public class AddressResponse
     [ProtoMember(4)]
     public string PostalCode { get; set; } = string.Empty;
 
-    [ProtoMember(5)]
-    public string State { get; set; } = string.Empty;
-
     [ProtoMember(6)]
     public string Country { get; set; } = string.Empty;
 

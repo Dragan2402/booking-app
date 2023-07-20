@@ -25,12 +25,20 @@ public class CottageRepository : ARepository<Cottage>, ICottageRepository
 
     public async Task<List<Cottage>> GetAllAsync()
     {
-        return await Context.Cottages.Include(c => c.Address).ToListAsync();
+        return await Context.Cottages
+            .Include(c => c.Address)
+            .ThenInclude(a => a.City)
+            .ThenInclude(c => c.Country)
+            .ToListAsync();
     }
 
     public async Task<Maybe<Cottage>> GetById(Guid id)
     {
-        var query = Context.Cottages.Include(c => c.Address);
+        var query = Context.Cottages
+            .Include(c => c.Address)
+            .ThenInclude(a => a.City)
+            .ThenInclude(c => c.Country);
+
         var possibleCottage = await query.FirstOrDefaultAsync(c => c.Id == id);
         return new Maybe<Cottage>(possibleCottage);
     }
