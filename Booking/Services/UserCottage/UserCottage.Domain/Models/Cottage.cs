@@ -12,12 +12,18 @@ public class Cottage : IAuditable, ISoftDeletable
         this.OwnerId = ownerId;
         this.Address = default!;
         this.Owner = default!;
+        this.PromoDescription = string.Empty;
+        this.AdditionalInfo = string.Empty;
+        this.Pictures = Array.Empty<string>();
     }
     public Cottage()
     {
         this.Name = string.Empty;
         this.Address = default!;
         this.Owner = default!;
+        this.PromoDescription = string.Empty;
+        this.AdditionalInfo = string.Empty;
+        this.Pictures = Array.Empty<string>();
     }
     public Guid Id { get; set; }
     public string Name { get; set; }
@@ -25,6 +31,12 @@ public class Cottage : IAuditable, ISoftDeletable
     public User Owner { get; set; }
     public Guid AddressId { get; set; }
     public Address Address { get; set; }
+    public double PricePerDay { get; set; }
+    public string PromoDescription { get; set; }
+    public string AdditionalInfo { get; set; }
+    public int Rooms { get; set; }
+    public int MaxCapacity { get; set; }
+    public string[] Pictures { get; set; }
     public DateTimeOffset CreatedAt { get; set; }
     public DateTimeOffset UpdatedAt { get; set; }
     public DateTimeOffset? DeletedAt { get; set; }

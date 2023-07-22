@@ -6,6 +6,7 @@ using Booking.Services.UserCottage.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using UserCottage.Infrastructure.Database;
 
 namespace Booking.Services.UserCottage.Infrastructure.DependencyInjection;
 
@@ -13,6 +14,7 @@ public static class ServiceCollectionExtension
 {
     public static IServiceCollection AddServices(this IServiceCollection services)
     {
+        services.AddTransient<DataSeeder>();
         return services;
     }
 
@@ -28,7 +30,7 @@ public static class ServiceCollectionExtension
     public static IServiceCollection AddDatabases(this IServiceCollection services, IConfiguration configuration)
     {
         var userCotttageConnectionString = configuration.GetConnectionString("UserCottageDatabase");
-        services.AddDbContext<UserCottageContext>(options => options.UseSqlServer(userCotttageConnectionString));
+        services.AddDbContext<UserCottageContext>(options => options.UseSqlServer(userCotttageConnectionString!));
         return services;
     }
 }

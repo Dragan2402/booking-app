@@ -16,6 +16,8 @@ public class RoleConfiguration : AEntityTypeConfiguration<Role>
         builder.HasKey(c => c.Id);
         builder.Property(c => c.Name).HasColumnType("varchar(255)").IsRequired();
 
+        builder.HasMany(r => r.Permissions).WithMany(p => p.Roles);
+
         builder.HasData(CreateRoleSeed());
     }
 

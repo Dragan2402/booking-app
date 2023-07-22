@@ -4,6 +4,7 @@ using Booking.Services.UserCottage.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace UserCottage.Infrastructure.Migrations
 {
     [DbContext(typeof(UserCottageContext))]
-    partial class UserCottageContextModelSnapshot : ModelSnapshot
+    [Migration("20230722172250_AddPermission")]
+    partial class AddPermission
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,10 +30,6 @@ namespace UserCottage.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("AdditionalInfo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<Guid>("AddressId")
                         .HasColumnType("uniqueidentifier");
 
@@ -41,29 +39,12 @@ namespace UserCottage.Infrastructure.Migrations
                     b.Property<DateTimeOffset?>("DeletedAt")
                         .HasColumnType("datetimeoffset(2)");
 
-                    b.Property<int>("MaxCapacity")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("varchar(255)");
 
                     b.Property<Guid>("OwnerId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Pictures")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("PricePerDay")
-                        .HasColumnType("float");
-
-                    b.Property<string>("PromoDescription")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Rooms")
-                        .HasColumnType("int");
 
                     b.Property<DateTimeOffset>("UpdatedAt")
                         .HasColumnType("datetimeoffset(2)");
@@ -81,46 +62,28 @@ namespace UserCottage.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("8e10d5fc-600d-49ff-8d1c-ca15872af896"),
-                            AdditionalInfo = "Very cool and roomy cottage.",
                             AddressId = new Guid("f96e8120-3d51-44fc-9620-d842c6402faf"),
                             CreatedAt = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            MaxCapacity = 0,
                             Name = "Sunshine Bebe",
                             OwnerId = new Guid("fdb5d61d-f6b9-4b0f-8869-4a9bebeb128a"),
-                            Pictures = "picture.url1:picture.url2",
-                            PricePerDay = 50.0,
-                            PromoDescription = "Cool cottage",
-                            Rooms = 0,
                             UpdatedAt = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0))
                         },
                         new
                         {
                             Id = new Guid("7397fd64-0d58-4322-a743-a81f77c64fd8"),
-                            AdditionalInfo = "Funny cottage.",
                             AddressId = new Guid("d4268f91-5bc6-45e4-8246-d7fe59ded27a"),
                             CreatedAt = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            MaxCapacity = 0,
                             Name = "Funny Resort",
                             OwnerId = new Guid("fdb5d61d-f6b9-4b0f-8869-4a9bebeb128a"),
-                            Pictures = "picture.url3:picture.url4",
-                            PricePerDay = 29.0,
-                            PromoDescription = "Fun fun fun",
-                            Rooms = 0,
                             UpdatedAt = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0))
                         },
                         new
                         {
                             Id = new Guid("98adc6d2-4b27-486f-9520-9ceda899168c"),
-                            AdditionalInfo = "Terrible place with terrible people avoid at all costs.",
                             AddressId = new Guid("ded20aca-37a5-49be-ad10-2a86e4057486"),
                             CreatedAt = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            MaxCapacity = 0,
                             Name = "QSX Mansion",
                             OwnerId = new Guid("a1829896-9b2a-4e4f-b732-0b2414547802"),
-                            Pictures = "picture.url1:picture.url2",
-                            PricePerDay = 30.0,
-                            PromoDescription = "Terrible",
-                            Rooms = 0,
                             UpdatedAt = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0))
                         });
                 });
@@ -162,64 +125,64 @@ namespace UserCottage.Infrastructure.Migrations
                         {
                             Id = new Guid("17197b81-dd09-487c-b314-dbb879198cbf"),
                             CityId = new Guid("faa5b05b-010f-4632-b12b-f1a8b8486582"),
-                            CreatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 43, 38, 111, DateTimeKind.Unspecified).AddTicks(2418), new TimeSpan(0, 2, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 22, 49, 763, DateTimeKind.Unspecified).AddTicks(8913), new TimeSpan(0, 2, 0, 0, 0)),
                             PostalCode = "76100",
                             Street = "Pavla Savica 42",
-                            UpdatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 43, 38, 111, DateTimeKind.Unspecified).AddTicks(2521), new TimeSpan(0, 2, 0, 0, 0))
+                            UpdatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 22, 49, 763, DateTimeKind.Unspecified).AddTicks(8984), new TimeSpan(0, 2, 0, 0, 0))
                         },
                         new
                         {
                             Id = new Guid("f96e8120-3d51-44fc-9620-d842c6402faf"),
                             CityId = new Guid("e5123dfd-6fa4-4c11-b433-a9ef7227de9f"),
-                            CreatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 43, 38, 111, DateTimeKind.Unspecified).AddTicks(2536), new TimeSpan(0, 2, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 22, 49, 763, DateTimeKind.Unspecified).AddTicks(8990), new TimeSpan(0, 2, 0, 0, 0)),
                             PostalCode = "21000",
                             Street = "Svetojovanska 11",
-                            UpdatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 43, 38, 111, DateTimeKind.Unspecified).AddTicks(2542), new TimeSpan(0, 2, 0, 0, 0))
+                            UpdatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 22, 49, 763, DateTimeKind.Unspecified).AddTicks(8992), new TimeSpan(0, 2, 0, 0, 0))
                         },
                         new
                         {
                             Id = new Guid("89772a55-fc5b-4c79-b24c-22c307c4b78f"),
                             CityId = new Guid("e5123dfd-6fa4-4c11-b433-a9ef7227de9f"),
-                            CreatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 43, 38, 111, DateTimeKind.Unspecified).AddTicks(2553), new TimeSpan(0, 2, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 22, 49, 763, DateTimeKind.Unspecified).AddTicks(8997), new TimeSpan(0, 2, 0, 0, 0)),
                             PostalCode = "21000",
                             Street = "Palicka 13",
-                            UpdatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 43, 38, 111, DateTimeKind.Unspecified).AddTicks(2558), new TimeSpan(0, 2, 0, 0, 0))
+                            UpdatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 22, 49, 763, DateTimeKind.Unspecified).AddTicks(8999), new TimeSpan(0, 2, 0, 0, 0))
                         },
                         new
                         {
                             Id = new Guid("87ed11ca-6344-41fe-a8e7-0fcdd455da80"),
                             CityId = new Guid("e5123dfd-6fa4-4c11-b433-a9ef7227de9f"),
-                            CreatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 43, 38, 111, DateTimeKind.Unspecified).AddTicks(2567), new TimeSpan(0, 2, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 22, 49, 763, DateTimeKind.Unspecified).AddTicks(9004), new TimeSpan(0, 2, 0, 0, 0)),
                             PostalCode = "21000",
                             Street = "Pavloviceva 11",
-                            UpdatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 43, 38, 111, DateTimeKind.Unspecified).AddTicks(2573), new TimeSpan(0, 2, 0, 0, 0))
+                            UpdatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 22, 49, 763, DateTimeKind.Unspecified).AddTicks(9006), new TimeSpan(0, 2, 0, 0, 0))
                         },
                         new
                         {
                             Id = new Guid("a84c15ab-a67c-4447-a30d-0b0d4e10fbc8"),
                             CityId = new Guid("e5123dfd-6fa4-4c11-b433-a9ef7227de9f"),
-                            CreatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 43, 38, 111, DateTimeKind.Unspecified).AddTicks(2581), new TimeSpan(0, 2, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 22, 49, 763, DateTimeKind.Unspecified).AddTicks(9010), new TimeSpan(0, 2, 0, 0, 0)),
                             PostalCode = "21000",
                             Street = "Futoski put bb",
-                            UpdatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 43, 38, 111, DateTimeKind.Unspecified).AddTicks(2585), new TimeSpan(0, 2, 0, 0, 0))
+                            UpdatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 22, 49, 763, DateTimeKind.Unspecified).AddTicks(9012), new TimeSpan(0, 2, 0, 0, 0))
                         },
                         new
                         {
                             Id = new Guid("d4268f91-5bc6-45e4-8246-d7fe59ded27a"),
                             CityId = new Guid("e5123dfd-6fa4-4c11-b433-a9ef7227de9f"),
-                            CreatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 43, 38, 111, DateTimeKind.Unspecified).AddTicks(2599), new TimeSpan(0, 2, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 22, 49, 763, DateTimeKind.Unspecified).AddTicks(9018), new TimeSpan(0, 2, 0, 0, 0)),
                             PostalCode = "21000",
                             Street = "Fruska Gora 2121",
-                            UpdatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 43, 38, 111, DateTimeKind.Unspecified).AddTicks(2604), new TimeSpan(0, 2, 0, 0, 0))
+                            UpdatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 22, 49, 763, DateTimeKind.Unspecified).AddTicks(9020), new TimeSpan(0, 2, 0, 0, 0))
                         },
                         new
                         {
                             Id = new Guid("ded20aca-37a5-49be-ad10-2a86e4057486"),
                             CityId = new Guid("e5123dfd-6fa4-4c11-b433-a9ef7227de9f"),
-                            CreatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 43, 38, 111, DateTimeKind.Unspecified).AddTicks(2613), new TimeSpan(0, 2, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 22, 49, 763, DateTimeKind.Unspecified).AddTicks(9049), new TimeSpan(0, 2, 0, 0, 0)),
                             PostalCode = "21000",
                             Street = "Jovana Popovica 51",
-                            UpdatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 43, 38, 111, DateTimeKind.Unspecified).AddTicks(2618), new TimeSpan(0, 2, 0, 0, 0))
+                            UpdatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 22, 49, 763, DateTimeKind.Unspecified).AddTicks(9051), new TimeSpan(0, 2, 0, 0, 0))
                         });
                 });
 
@@ -256,17 +219,17 @@ namespace UserCottage.Infrastructure.Migrations
                         {
                             Id = new Guid("e5123dfd-6fa4-4c11-b433-a9ef7227de9f"),
                             CountryId = new Guid("177d102d-ccc4-478d-8c25-7eaf7aecb432"),
-                            CreatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 43, 38, 111, DateTimeKind.Unspecified).AddTicks(6816), new TimeSpan(0, 2, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 22, 49, 764, DateTimeKind.Unspecified).AddTicks(1555), new TimeSpan(0, 2, 0, 0, 0)),
                             Name = "Novi Sad",
-                            UpdatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 43, 38, 111, DateTimeKind.Unspecified).AddTicks(6852), new TimeSpan(0, 2, 0, 0, 0))
+                            UpdatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 22, 49, 764, DateTimeKind.Unspecified).AddTicks(1583), new TimeSpan(0, 2, 0, 0, 0))
                         },
                         new
                         {
                             Id = new Guid("faa5b05b-010f-4632-b12b-f1a8b8486582"),
                             CountryId = new Guid("7d345de0-0ca1-4cd3-ac86-97e424f442d1"),
-                            CreatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 43, 38, 111, DateTimeKind.Unspecified).AddTicks(6869), new TimeSpan(0, 2, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 22, 49, 764, DateTimeKind.Unspecified).AddTicks(1590), new TimeSpan(0, 2, 0, 0, 0)),
                             Name = "Brcko",
-                            UpdatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 43, 38, 111, DateTimeKind.Unspecified).AddTicks(6875), new TimeSpan(0, 2, 0, 0, 0))
+                            UpdatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 22, 49, 764, DateTimeKind.Unspecified).AddTicks(1592), new TimeSpan(0, 2, 0, 0, 0))
                         });
                 });
 
@@ -297,16 +260,16 @@ namespace UserCottage.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("177d102d-ccc4-478d-8c25-7eaf7aecb432"),
-                            CreatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 43, 38, 112, DateTimeKind.Unspecified).AddTicks(5785), new TimeSpan(0, 2, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 22, 49, 764, DateTimeKind.Unspecified).AddTicks(5971), new TimeSpan(0, 2, 0, 0, 0)),
                             Name = "Serbia",
-                            UpdatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 43, 38, 112, DateTimeKind.Unspecified).AddTicks(5824), new TimeSpan(0, 2, 0, 0, 0))
+                            UpdatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 22, 49, 764, DateTimeKind.Unspecified).AddTicks(5999), new TimeSpan(0, 2, 0, 0, 0))
                         },
                         new
                         {
                             Id = new Guid("7d345de0-0ca1-4cd3-ac86-97e424f442d1"),
-                            CreatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 43, 38, 112, DateTimeKind.Unspecified).AddTicks(5833), new TimeSpan(0, 2, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 22, 49, 764, DateTimeKind.Unspecified).AddTicks(6005), new TimeSpan(0, 2, 0, 0, 0)),
                             Name = "Bosnia and Herzegovina",
-                            UpdatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 43, 38, 112, DateTimeKind.Unspecified).AddTicks(5836), new TimeSpan(0, 2, 0, 0, 0))
+                            UpdatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 22, 49, 764, DateTimeKind.Unspecified).AddTicks(6007), new TimeSpan(0, 2, 0, 0, 0))
                         });
                 });
 
@@ -402,45 +365,45 @@ namespace UserCottage.Infrastructure.Migrations
                         {
                             Id = new Guid("8e10d5fc-600d-49ff-8d1c-ca15872af496"),
                             AddressId = new Guid("17197b81-dd09-487c-b314-dbb879198cbf"),
-                            CreatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 43, 38, 113, DateTimeKind.Unspecified).AddTicks(2602), new TimeSpan(0, 2, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 22, 49, 765, DateTimeKind.Unspecified).AddTicks(1052), new TimeSpan(0, 2, 0, 0, 0)),
                             FirstName = "Jovan",
                             IdentityId = new Guid("233275cd-158e-442c-90c1-3bc3495563c6"),
                             LastName = "Jovic",
                             RoleId = new Guid("b18e34d1-690c-4e41-83a7-43b68df56912"),
-                            UpdatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 43, 38, 113, DateTimeKind.Unspecified).AddTicks(2637), new TimeSpan(0, 2, 0, 0, 0))
+                            UpdatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 22, 49, 765, DateTimeKind.Unspecified).AddTicks(1075), new TimeSpan(0, 2, 0, 0, 0))
                         },
                         new
                         {
                             Id = new Guid("59249fab-eec0-435c-9df9-5aba2c082f39"),
                             AddressId = new Guid("89772a55-fc5b-4c79-b24c-22c307c4b78f"),
-                            CreatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 43, 38, 113, DateTimeKind.Unspecified).AddTicks(2652), new TimeSpan(0, 2, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 22, 49, 765, DateTimeKind.Unspecified).AddTicks(1085), new TimeSpan(0, 2, 0, 0, 0)),
                             FirstName = "Pero",
                             IdentityId = new Guid("a669b80b-1031-4ef4-985c-112fb99e9cee"),
                             LastName = "Peric",
                             RoleId = new Guid("b18e34d1-690c-4e41-83a7-43b68df56912"),
-                            UpdatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 43, 38, 113, DateTimeKind.Unspecified).AddTicks(2656), new TimeSpan(0, 2, 0, 0, 0))
+                            UpdatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 22, 49, 765, DateTimeKind.Unspecified).AddTicks(1087), new TimeSpan(0, 2, 0, 0, 0))
                         },
                         new
                         {
                             Id = new Guid("fdb5d61d-f6b9-4b0f-8869-4a9bebeb128a"),
                             AddressId = new Guid("87ed11ca-6344-41fe-a8e7-0fcdd455da80"),
-                            CreatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 43, 38, 113, DateTimeKind.Unspecified).AddTicks(2666), new TimeSpan(0, 2, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 22, 49, 765, DateTimeKind.Unspecified).AddTicks(1095), new TimeSpan(0, 2, 0, 0, 0)),
                             FirstName = "Gazda",
                             IdentityId = new Guid("af8fe996-588b-4056-97f4-9206d56e3fbe"),
                             LastName = "Gazdic",
                             RoleId = new Guid("936176c2-95bb-4a2c-a2b9-fa657a02973f"),
-                            UpdatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 43, 38, 113, DateTimeKind.Unspecified).AddTicks(2669), new TimeSpan(0, 2, 0, 0, 0))
+                            UpdatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 22, 49, 765, DateTimeKind.Unspecified).AddTicks(1097), new TimeSpan(0, 2, 0, 0, 0))
                         },
                         new
                         {
                             Id = new Guid("a1829896-9b2a-4e4f-b732-0b2414547802"),
                             AddressId = new Guid("a84c15ab-a67c-4447-a30d-0b0d4e10fbc8"),
-                            CreatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 43, 38, 113, DateTimeKind.Unspecified).AddTicks(2678), new TimeSpan(0, 2, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 22, 49, 765, DateTimeKind.Unspecified).AddTicks(1104), new TimeSpan(0, 2, 0, 0, 0)),
                             FirstName = "Andrej",
                             IdentityId = new Guid("e91a2f4a-4783-46e8-be53-c9b631e2a8f8"),
                             LastName = "Culjak",
                             RoleId = new Guid("936176c2-95bb-4a2c-a2b9-fa657a02973f"),
-                            UpdatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 43, 38, 113, DateTimeKind.Unspecified).AddTicks(2681), new TimeSpan(0, 2, 0, 0, 0))
+                            UpdatedAt = new DateTimeOffset(new DateTime(2023, 7, 22, 19, 22, 49, 765, DateTimeKind.Unspecified).AddTicks(1107), new TimeSpan(0, 2, 0, 0, 0))
                         });
                 });
 
