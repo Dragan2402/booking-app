@@ -1,11 +1,10 @@
-﻿using Booking.Services.Common.Data;
+﻿using Booking.Services.Authentication.Domain.Models;
+using Booking.Services.Common.Data;
 using Booking.Services.Common.Infrastructure;
-using Booking.Services.UserCottage.Domain;
-using Booking.Services.UserCottage.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Booking.Services.UserCottage.Infrastructure.EntityConfigration;
+namespace Booking.Services.Authentication.Infrastructure.EntityConfiguration;
 
 public class RoleConfiguration : AEntityTypeConfiguration<Role>
 {

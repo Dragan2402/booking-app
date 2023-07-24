@@ -1,10 +1,9 @@
-﻿using Booking.Services.Common.Data;
+﻿using Booking.Services.Authentication.Domain.Models;
 using Booking.Services.Common.Infrastructure;
-using Booking.Services.UserCottage.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace UserCottage.Infrastructure.EntityConfiguration;
+namespace Booking.Services.Authentication.Infrastructure.EntityConfiguration;
 
 public class PermissionConfiguration : AEntityTypeConfiguration<Permission>
 {

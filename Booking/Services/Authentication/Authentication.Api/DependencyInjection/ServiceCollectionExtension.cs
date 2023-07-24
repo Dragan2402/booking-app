@@ -11,4 +11,17 @@ public static class ServiceCollectionExtensions
         app.MapGrpcService<TokenValidationService>();
         return app;
     }
+
+    public static WebApplication SeedData(this WebApplication app)
+    {
+        var scopedFactory = app.Services.GetService<IServiceScopeFactory>();
+
+        using (var scope = scopedFactory!.CreateScope())
+        {
+            var service = scope.ServiceProvider.GetService<DataSeeder>();
+            service!.Seed();
+        }
+
+        return app;
+    }
 }

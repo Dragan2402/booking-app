@@ -11,8 +11,6 @@ public class UserCottageContext : ADbContext<UserCottageContext>
     {
     }
 
-    public DbSet<Permission> Permissions => this.Set<Permission>();
-    public DbSet<Role> Roles => this.Set<Role>();
     public DbSet<Country> Countries => this.Set<Country>();
     public DbSet<City> Cities => this.Set<City>();
     public DbSet<Address> Addresses => this.Set<Address>();

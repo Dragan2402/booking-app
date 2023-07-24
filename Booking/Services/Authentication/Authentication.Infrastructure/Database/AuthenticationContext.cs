@@ -10,7 +10,8 @@ public class AuthenticationContext : ADbContext<AuthenticationContext>
         : base(options)
     {
     }
-
+    public DbSet<Permission> Permissions => Set<Permission>();
+    public DbSet<Role> Roles => Set<Role>();
     public DbSet<Identity> Identities => Set<Identity>();
 
 }

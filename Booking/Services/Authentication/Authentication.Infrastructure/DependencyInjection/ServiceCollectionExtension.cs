@@ -11,6 +11,11 @@ namespace Booking.Services.Authentication.Infrastructure.DependencyInjection;
 
 public static class ServiceCollectionExtension
 {
+    public static IServiceCollection AddDataSeeder(this IServiceCollection services)
+    {
+        services.AddTransient<DataSeeder>();
+        return services;
+    }
     public static IServiceCollection AddRepositories(this IServiceCollection services)
     {
         services.AddScoped<IIdentityRepository, IdentityRepository>();

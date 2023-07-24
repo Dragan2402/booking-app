@@ -6,18 +6,11 @@ using Booking.Services.UserCottage.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using UserCottage.Infrastructure.Database;
 
 namespace Booking.Services.UserCottage.Infrastructure.DependencyInjection;
 
 public static class ServiceCollectionExtension
 {
-    public static IServiceCollection AddServices(this IServiceCollection services)
-    {
-        services.AddTransient<DataSeeder>();
-        return services;
-    }
-
     public static IServiceCollection AddRepositories(this IServiceCollection services)
     {
         services.AddScoped<IAddressRepository, AddressRepository>();

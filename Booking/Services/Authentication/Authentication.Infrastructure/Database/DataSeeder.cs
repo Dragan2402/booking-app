@@ -1,16 +1,15 @@
 ﻿
-using Booking.Services.Common.Data;
-using Booking.Services.UserCottage.Domain.Models;
-using Booking.Services.UserCottage.Infrastructure.Database;
-using Microsoft.EntityFrameworkCore;
 
-namespace UserCottage.Infrastructure.Database;
+using Booking.Services.Authentication.Domain.Models;
+using Booking.Services.Authentication.Infrastructure.Database;
+using Booking.Services.Common.Data;
+using Microsoft.EntityFrameworkCore;
 
 public class DataSeeder
 {
-    private readonly UserCottageContext _dbContext;
+    private readonly AuthenticationContext _dbContext;
 
-    public DataSeeder(UserCottageContext dbContext)
+    public DataSeeder(AuthenticationContext dbContext)
     {
         _dbContext = dbContext;
     }

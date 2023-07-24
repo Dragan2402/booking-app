@@ -26,9 +26,6 @@ public class ReadClientByIdUseCase
 
         var user = maybeClient.Item;
 
-        if (user.Role.Name != GeneralRoles.ClientRole)
-            throw new BusinessLogicException($"User is not client,");
-
         return _mapper.Map<UserResult>(user);
     }
 }

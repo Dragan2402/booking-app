@@ -1,6 +1,6 @@
 ﻿using Booking.Services.Common.Data;
 
-namespace Booking.Services.UserCottage.Domain.Models;
+namespace Booking.Services.Authentication.Domain.Models;
 
 public class Permission
 {

@@ -4,6 +4,7 @@ using Booking.Services.UserCottage.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace UserCottage.Infrastructure.Migrations
 {
     [DbContext(typeof(UserCottageContext))]
-    partial class UserCottageContextModelSnapshot : ModelSnapshot
+    [Migration("20230724103956_RemovedRolePermission")]
+    partial class RemovedRolePermission
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

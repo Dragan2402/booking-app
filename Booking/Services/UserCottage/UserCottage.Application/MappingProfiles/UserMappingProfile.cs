@@ -11,10 +11,8 @@ public class UserMappingProfile : Profile
 {
     public UserMappingProfile()
     {
-        CreateMap<User, UserResult>()
-            .ForMember(dest => dest.Role, source => source.MapFrom(source => source.Role.Name));
+        CreateMap<User, UserResult>();
 
-        CreateMap<CreateUserContract, User>()
-            .ForMember(dest => dest.Role, source => source.MapFrom(source => new Role(source.Role)));
+        CreateMap<CreateUserContract, User>();
     }
 }
